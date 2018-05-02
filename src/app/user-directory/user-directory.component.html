@@ -1,0 +1,110 @@
+<div class="ui inverted pointing menu">
+  <a class="item" href="/">
+    <i class="podcast icon blue ml"></i>
+    Smart Things
+  </a>
+  <a class="active item" href="/user">
+    Users
+  </a>
+  <a class="item" href="/user">
+    Activity
+  </a>
+  <a class="item" href="/user">
+    Members
+  </a>
+  <div class="right menu">
+    
+      
+      <a class="ui item" href="/support">
+        Support
+      </a>
+    
+      <a class="ui item" href="/chat">
+        Chat
+      </a>
+    
+  </div>
+</div>
+<h1>User Directory</h1>
+<button class="ui blue button">
+  <i class="icon user"></i>
+  Add New User
+</button>
+<table class="ui fixed table">
+  <thead>
+    <tr>
+      <th>USER NAME</th>
+      <th>ADDRESS</th>
+      <th>CONTACT</th>
+      <th>EMAIL</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.username}}</td>
+      <td>{{user.address}}</td>
+      <td>{{user.phoneno}}</td>
+      <td>{{user.email}}</td>
+      <td> <button class="ui submit button" (click)="onClick()">...</button> </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+<form class="ui form" (submit)="saveDetails()">
+  <div class="fields">
+    <div class="field">
+      <label>User Name</label>
+      <input type="text" name="username" [(ngModel)]="username" placeholder="First Name">
+    </div>
+    <div class="field">
+      <label>Address</label>
+      <input type="text" name="address" [(ngModel)]="address" placeholder="enter Address">
+    </div>
+    <div class="field">
+      <label>Contact</label>
+      <input type="number" name="number" [(ngModel)]="phoneno" placeholder="ph no">
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input type="text" name="email" [(ngModel)]="email" placeholder="Email">
+    </div>
+  </div>
+<button class="ui blue button">
+  <i class="icon user"></i>
+  Add New User
+</button>
+</form>
+
+
+
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Profile Picture
+  </div>
+  <div class="image content">
+    <div class="ui medium image">
+      <img src="">
+    </div>
+    <div class="description">
+      <div class="ui header">We've auto-chosen a profile image for you.</div>
+      <p>We've grabbed the following image from the
+        <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+      <p>Is it okay to use this photo?</p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      Nope
+    </div>
+    <div class="ui positive right labeled icon button">
+      Yep, that's me
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
